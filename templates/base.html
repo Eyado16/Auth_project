@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Authorization</title>
+    </head>
+    <body>
+        <ul class="nav">
+            <li class="nav-link"> <a href="{{url_for('index')}}">Home</a> </li>
+            {% if current_user.is_authenticated %}
+             <li class="nav-link"> <a href="{{url_for('logout')}}">Log out</a> </li>
+            {% else %}
+             <li class="nav-link"> <a href="{{url_for('signup')}}">Sign Up</a> </li> 
+             <li class="nav-link"> <a href="{{url_for('login')}}">Log In</a> </li>
+            {% endif %}
+        </ul>
+        {% block body %}
+
+        {% endblock %}
+    </body>
+</html> 
